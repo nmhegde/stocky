@@ -122,7 +122,7 @@ function processCountData(allRows) {
 
   for (var i=0; i<allRows.length; i++) {
     row = allRows[i];
-    x.push( new Date(row['time']));
+    x.push( row['time']);
     y.push( row['count'] );
   }
   console.log( 'X',x, 'Y',y);
@@ -147,7 +147,7 @@ function processStockData(allRows) {
 
   for (var i=0; i<allRows.length; i++) {
     row = allRows[i];
-    x.push( new Date(row['time']));
+    x.push( row['time']);
     y.push( row['price'] );
   }
   console.log( 'X',x, 'Y',y);
