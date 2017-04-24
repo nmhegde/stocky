@@ -2,7 +2,7 @@
 <html >
 <head>
 	<title></title>
-	<header><h1>Stocky</h1></header>
+	<header><h1>Stock price analysis based on live twitter occurrences <p>using Spark Streaming</h1></header>
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles/style.css">
@@ -81,8 +81,12 @@
 	<option value="yahoo">yahoo</option>
 </select>
 <div>
-
+<br>
+<br>
+<br>
 <div id="count" style="chart"></div>
+<br>
+<br>
 <div id="stock" style="chart"></div>
 <script type="text/javascript">
 
@@ -123,7 +127,7 @@ function processCountData(allRows) {
   for (var i=0; i<allRows.length; i++) {
     row = allRows[i];
     x.push( row['time']);
-    y.push( row['count'] );
+    y.push( row['count']);
   }
   console.log( 'X',x, 'Y',y);
   makeCountPlotly( x, y);
@@ -135,9 +139,27 @@ function makeCountPlotly( x, y ){
     x: x,
     y: y
   }];
+  var layout = {
+  title: 'Occurrences on Twitter',
+  xaxis: {
+    title: 'Time',
+    titlefont: {
+      family: 'Courier New, monospace',
+      size: 18,
+      color: '#7f7f7f'
+    }
+  },
+  yaxis: {
+    title: 'Occurrences',
+    titlefont: {
+      family: 'Courier New, monospace',
+      size: 18,
+      color: '#7f7f7f'
+    }
+  }
+};
 
-  Plotly.newPlot('count', traces,
-    {title: 'Plotting twitter occurances with time'});
+  Plotly.newPlot('count', traces,layout);
 };
 
 function processStockData(allRows) {
@@ -160,8 +182,27 @@ function makeStockPlotly( x, y ){
     x: x,
     y: y
   }];
-  Plotly.newPlot("stock",tracess,
-    {title: 'Plotting stock Price with time'});
+  var layout = {
+  bgcolor : '#D7E8BA',
+  title: 'Stock Price variation',
+  xaxis: {
+    title: 'Time',
+    titlefont: {
+      family: 'Courier New, monospace',
+      size: 18,
+      color: '#7f7f7f'
+    }
+  },
+  yaxis: {
+    title: 'Price',
+    titlefont: {
+      family: 'Courier New, monospace',
+      size: 18,
+      color: '#7f7f7f'
+    }
+  }
+};
+  Plotly.newPlot("stock",tracess,layout);
 };
 </script>
 </body>

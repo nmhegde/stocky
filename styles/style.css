@@ -5,11 +5,11 @@
 }
 header {
 	height: 200px;
-    background-color: #66717E;
+    background-color: #4DA1A9;
 }
 header h1 {
 	text-align: center;
-	color: #E0E2DB;
+	color: #F0F7F4;
 	padding-top: 70px;
     margin: 0;
     font-family: 'Roboto', sans-serif;
@@ -23,12 +23,13 @@ body {
 	margin: 0;
     padding: 0;
     height: 100%;
-    background-color: #E16036;
+    color:#89023E;
+    background-color: #D7E8BA;
 }
 .chart{
 	padding-top: 20px;
-	min-width: 310px; 
-	height: 400px; 
+	min-width: 400px; 
+	height: 500px; 
 	margin: 0 auto;
 	display: none
 }
